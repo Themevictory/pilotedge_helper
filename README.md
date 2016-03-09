@@ -38,7 +38,21 @@ On the bottom left of your screen you'll see several indicators, the first of wh
 
 ![FPS](http://i.imgur.com/AsanbRW.jpg)
 
-True, you can opt to visualize your FPS by displaying the relevant X-Plane dataref in the uper left conrner, but it's a big ugly box, that holds a ton of additional information that you probably don't need unless you're troubleshooting something.
+True, you can opt to visualize your FPS by displaying the relevant X-Plane dataref in the uper left conrner, but it's a big ugly box that holds a ton of additional information that you probably don't need unless you're troubleshooting something.
 This here is a simple **color coded** FPS counter: with frames at 30 or above it's green, the range 20 to 30 is yellow and at 19 or bellow it goes red.
 
 *NOTE: The 19 FPS threshold is an important one when flying online: when you drop below it X-Plane will start transparently decreasing your simulation rate, so that your system is able to cope with the rendering strain. The net result is that you will be moving around more slowly than you think you are (and than your gauges are telling you). For the controllers watching you on their scopes and for other pilots in the air your ground speed would be slower than displayed: e.g. you might be at 120kt indicated / 140 ground speed according to your speedometer, but due to the sim-rate decrease you might be effectively at let's say 100 ground speed and this is how it would appear to the other guys on the network, be it ATC or other pilots. You can ocassionally hear controllers on Pilotedge commenting on this on the frequency and mentioning "the FPS issue"*
+
+### Selected COM radio (and frequency)
+
+The second indicator shows you the currently selected COM radio **for transmitting** (along with its currently dialed frequency):
+
+![COM](http://i.imgur.com/h4x9VTj.jpg)
+
+When flying online and having to deal with multiple frequency changes it's convenient to use both COM radios (when your plane has them). Unfortunately many models / addons fall short when it comes to selecting the radio for trasnmitting: some addons just don't have working buttons for that in their 3D cockpits, some tie it to the listening radio selections, some use custom code, etc. It's inconsistent and I've heard pilots on Pilotedge many times unintentionally transmit on the wrong COM radio (and I've done it myself).
+So it's very handy to be able to *determine at a glance* which COM radio is selected for transmission and what frequency is dialed in it. This is what this indicator does and it's also *color coded*: it's white when COM1 is selected, yellow when COM2 is selected and red while you're transmitting (the "Contact ATC" button pressed):
+
+![COM2](http://i.imgur.com/P6kgzyN.jpg)
+![COM TRANSMIT](http://i.imgur.com/zuRuYsT.jpg)
+
+Apart from being an indicator, this area is also an actuator, i.e. it not only shows you the information, but allows you to **change it (COM1 <-> COM2)**: clicking anywhere on the COM area will toggle the transmitting radio from COM1 to COM2 or vice versa.
