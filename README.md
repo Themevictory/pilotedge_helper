@@ -62,3 +62,23 @@ Apart from being an indicator, this area is also an actuator, i.e. it not only s
 The last indicator displays the current transponder mode, which is also handy to have at a glance at all times: you ought to have your transponder on when airborne at sometimes also on the ground when the airport uses Ground Surveilance Radar. The indicator is *color coded* and displays a red [-] symbol when transponder is off, yellow [S] when transponder is on standby and green [C] when transponder is on (mode C):
 
 ![SQ MODE](http://i.imgur.com/b6POU0U.jpg)
+
+## Installation
+
+Firstly you need to have the  [FlyWithLUA plugin](http://forums.x-plane.org/index.php?app=downloads&showfile=17468) installed. You might already have it if you're using RealTerraHaze or some of the other popular scripts that require it.
+
+To get the PIlotedge Helper Script go to: https://github.com/tarakanbg/pilotedge_helper and press the "Download ZIP" button:
+
+![Download](http://i.imgur.com/RrFT0ha.png)
+
+Unpack the ZIP archive, grab the `pilotedge_helper.lua` file and drop it in your X-Plane `\Resources\plugins\FlyWithLua\Scripts` folder.  That's it.
+
+## Customization
+
+You can optionally edit the first few lines of the script in your preferred text editor to customize it:
+
+![Customize](http://i.imgur.com/4yqNHR8.png)
+
+The preferences are described in the file and should be self-explanatory: you write `1` or `0` to enable/disable individual components depending on your needs. The joystick button number is needed if you want your COM indicator to turn red while trasnmitting: unfortunately X-Plane does not provide a dataref for the "Contact ATC" event that could be monitored, hence this workaround with monitoring the button press itself.
+
+Enjoy!
