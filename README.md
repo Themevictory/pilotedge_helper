@@ -38,7 +38,7 @@ On the bottom left of your screen you'll see several indicators, the first of wh
 
 ![FPS](http://i.imgur.com/AsanbRW.jpg)
 
-True, you can opt to visualize your FPS by displaying the relevant X-Plane dataref in the uper left conrner, but it's a big ugly box that holds a ton of additional information that you probably don't need unless you're troubleshooting something.
+True, you can opt to visualize your FPS by displaying the relevant X-Plane dataref in the upper left corner, but it's a big ugly box that holds a ton of additional information that you probably don't need unless you're troubleshooting something.
 This here is a simple **color coded** FPS counter: with frames at 30 or above it's green, the range 20 to 30 is yellow and at 19 or bellow it goes red.
 
 *NOTE: The 19 FPS threshold is an important one when flying online: when you drop below it X-Plane will start transparently decreasing your simulation rate, so that your system is able to cope with the rendering strain. The net result is that you will be moving around more slowly than you think you are (and than your gauges are telling you). For the controllers watching you on their scopes and for other pilots in the air your ground speed would be slower than displayed: e.g. you might be at 120kt indicated / 140 ground speed according to your speedometer, but due to the sim-rate decrease you might be effectively at let's say 100 ground speed and this is how it would appear to the other guys on the network, be it ATC or other pilots. You can ocassionally hear controllers on Pilotedge commenting on this on the frequency and mentioning "the FPS issue"*
@@ -49,7 +49,7 @@ The second indicator shows you the currently selected COM radio **for transmitti
 
 ![COM](http://i.imgur.com/h4x9VTj.jpg)
 
-When flying online and having to deal with multiple frequency changes it's convenient to use both COM radios (when your plane has them). Unfortunately many models / addons fall short when it comes to selecting the radio for trasnmitting: some addons just don't have working buttons for that in their 3D cockpits, some tie it to the listening radio selections, some use custom code, etc. It's inconsistent and I've heard pilots on Pilotedge many times unintentionally transmit on the wrong COM radio (and I've done it myself).
+When flying online and having to deal with multiple frequency changes it's convenient to use both COM radios (when your plane has them). Unfortunately many models / addons fall short when it comes to selecting the radio for transmitting: some addons just don't have working buttons for that in their 3D cockpits, some tie it to the listening radio selections, some use custom code, etc. It's inconsistent and I've heard pilots on Pilotedge many times unintentionally transmit on the wrong COM radio (and I've done it myself).
 So it's very handy to be able to *determine at a glance* which COM radio is selected for transmission and what frequency is dialed in it. This is what this indicator does and it's also *color coded*: it's white when COM1 is selected, yellow when COM2 is selected and red while you're transmitting (the "Contact ATC" button pressed):
 
 ![COM2](http://i.imgur.com/P6kgzyN.jpg)
@@ -59,7 +59,7 @@ Apart from being an indicator, this area is also an actuator, i.e. it not only s
 
 ### Transponder mode indicator
 
-The last indicator displays the current transponder mode, which is also handy to have at a glance at all times: you ought to have your transponder on when airborne at sometimes also on the ground when the airport uses Ground Surveilance Radar. The indicator is *color coded* and displays a red [-] symbol when transponder is off, yellow [S] when transponder is on standby and green [C] when transponder is on (mode C):
+The last indicator displays the current transponder mode, which is also handy to have at a glance at all times: you ought to have your transponder on when airborne at sometimes also on the ground when the airport uses Ground Surveilance Radar. The indicator is **color coded** and displays a red [-] symbol when transponder is off, yellow [S] when transponder is on standby and green [C] when transponder is on (mode C):
 
 ![SQ MODE](http://i.imgur.com/b6POU0U.jpg)
 
@@ -79,6 +79,6 @@ You can optionally edit the first few lines of the script in your preferred text
 
 ![Customize](http://i.imgur.com/4yqNHR8.png)
 
-The preferences are described in the file and should be self-explanatory: you write `1` or `0` to enable/disable individual components depending on your needs. The joystick button number is needed if you want your COM indicator to turn red while trasnmitting: unfortunately X-Plane does not provide a dataref for the "Contact ATC" event that could be monitored, hence this workaround with monitoring the button press itself.
+The preferences are described in the file and should be self-explanatory: you write `1` or `0` to enable/disable individual components depending on your needs. The joystick button number is needed if you want your COM indicator to turn red while transmitting: unfortunately X-Plane does not provide a dataref for the "Contact ATC" event that could be monitored, hence this workaround with monitoring the button press itself.
 
 Enjoy!
