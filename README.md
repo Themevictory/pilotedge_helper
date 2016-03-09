@@ -3,7 +3,7 @@ X-Plane 10 LUA script with some handy functions for online flying on Pilotedge, 
 
 ## Features
 
-### Mini Transponder gauge
+### Mini transponder gauge
 
 An unobtrusive mouse-driven transponder gauge, giving you the ability to always have a "mode C" capable transponder with IDENT functionality on any airplane/model that you use.
 
@@ -31,3 +31,14 @@ The upper part of the gauge represents the **IDENT button**: clicking anywhere i
 Moving your mouse outside of the gauge are hides the gauge, so you can enjoy an uncluttered screen without breaking your immersion.
 
 *NOTE: The gauge is fully compatible with plane models that already have built-in transponders: in these cases it can be treated just as an alternate method of manipulating the transponder values, or can be completely ignored (or disabled: see below)*
+
+### FPS counter
+
+On the bottom left of your screen you'll see several indicators, the first of which is a FPS counter:
+
+![FPS](http://i.imgur.com/AsanbRW.jpg)
+
+True, you can opt to visualize your FPS by displaying the relevant X-Plane dataref in the uper left conrner, but it's a big ugly box, that holds a ton of additional information that you probably don't need unless you're troubleshooting something.
+This here is a simple **color coded** FPS counter: with frames at 30 or above it's green, the range 20 to 30 is yellow and at 19 or bellow it goes red.
+
+*NOTE: The 19 FPS threshold is an important one when flying online: when you drop below it X-Plane will start transparently decreasing your simulation rate, so that your system is able to cope with the rendering strain. The net result is that you will be moving around more slowly than you think you are (and than your gauges are telling you). For the controllers watching you on their scopes and for other pilots in the air your ground speed would be slower than displayed: e.g. you might be at 120kt indicated / 140 ground speed according to your speedometer, but due to the sim-rate decrease you might be effectively at let's say 100 ground speed and this is how it would appear to the other guys on the network, be it ATC or other pilots. You can ocassionally hear controllers on Pilotedge commenting on this on the frequency and mentioning "the FPS issue"*
