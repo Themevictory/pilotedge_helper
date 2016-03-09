@@ -1,7 +1,7 @@
 -- PILOTEDGE helper
 -- Simple monitor and transponder to enhance online flying
 -- (c) Svilen Vassilev
--- build 2016-03-08
+-- build 2016-03-09
 -- Documentation (manual) and latest version at: https://github.com/tarakanbg/pilotedge_helper
 
 --| ----------------------------------|
@@ -39,28 +39,28 @@ contact_atc_joystick_button = 321
 
 --________________________________________________________--
 
-if(disable_data_display==0) then
+if disable_data_display==0 then
 
 	require "radio"
 
-	if(show_fps==1) then
+	if show_fps==1 then
 		do_every_frame("FPS_count()")
 		do_often("FPS_capture()")
 		do_every_draw("FPS_draw()")
   end
 
-  if(show_COM_and_frequency==1) then
+  if show_COM_and_frequency==1 then
 		do_every_frame("determine_radio()")
 		do_every_draw("Radio_draw()")
 		do_on_mouse_click("radio_mouse_click_events()")
   end
 
-  if(show_squawk_mode==1) then
+  if show_squawk_mode==1 then
 		do_every_frame("determine_transponder()")
 		do_every_draw("sq_draw()")
   end
 
-  if(enable_transponder_minigauge==1) then
+  if enable_transponder_minigauge==1 then
 		require "graphics"
 		do_every_draw("draw_transponder_gauge()")
 	  do_on_mouse_click("transponder_mouse_click_events()")
@@ -92,9 +92,9 @@ end
 
 function FPS_draw()
   if(fps>=0 and show_fps==1) then
-    if(fps<=19) then
+    if fps<=19  then
        draw_string(fps_pos_x, fps_pos_y, "FPS "..fps, "red")
-    elseif(fps>=30) then
+    elseif fps>=30 then
        draw_string(fps_pos_x, fps_pos_y, "FPS "..fps, "green")
     else
        draw_string(fps_pos_x, fps_pos_y, "FPS "..fps, "yellow")
@@ -119,10 +119,10 @@ function determine_radio()
 
   dataref("selected_radio", "sim/cockpit2/radios/actuators/audio_com_selection")
 
-	if(selected_radio==6) then
+	if selected_radio==6 then
 		radio_string = "COM1: "..com1_humanized
 		radio_color = "white"
-	elseif(selected_radio==7) then
+	elseif selected_radio==7 then
 		radio_string = "COM2: "..com2_humanized
 		radio_color = "yellow"
 	else
@@ -148,9 +148,9 @@ function radio_mouse_click_events()
 
 	if (MOUSE_X > 55 and MOUSE_X < 135) and (MOUSE_Y > 4 and MOUSE_Y < 30) then
 		dataref("transmit_radio", "sim/cockpit2/radios/actuators/audio_com_selection", "writable")
-		if(transmit_radio==6) then
+		if transmit_radio==6 then
 			transmit_radio = 7
-		elseif(transmit_radio==7) then
+		elseif transmit_radio==7 then
 			transmit_radio = 6
 		else
 			transmit_radio = 6
@@ -163,11 +163,11 @@ end
 --________________________________________________________-
 
 function determine_transponder()
-	if(TRANSPONDER_MODE == 0) then
+	if TRANSPONDER_MODE == 0 then
 	  transponder_color = "red"
   	transponder_on = 0
   	transponder_string = "-"
-  elseif(TRANSPONDER_MODE == 1) then
+  elseif TRANSPONDER_MODE == 1 then
     transponder_color = "yellow"
   	transponder_on = 0
   	transponder_string = "S"
@@ -202,9 +202,9 @@ function draw_transponder_gauge()
 
 
 	-- draw colored switches info
-	if(TRANSPONDER_MODE == 0) then
+	if TRANSPONDER_MODE == 0 then
 		graphics.set_color(1, 0, 0, 0.5)
-	elseif(TRANSPONDER_MODE == 1) then
+	elseif TRANSPONDER_MODE == 1 then
 		graphics.set_color(1, 1, 0, 0.5)
 	else
 		graphics.set_color(0, 1, 0, 0.5)
@@ -246,22 +246,22 @@ function draw_transponder_gauge()
 
 	sq_len = string.len (SQUAWK)
 
-  if (sq_len == 1) then
+  if sq_len == 1 then
 		digit1 = 0
 		digit2 = 0
 		digit3 = 0
 		digit4 = string.sub(SQUAWK, 1, 1)
-  elseif(sq_len == 2) then
+  elseif sq_len == 2 then
 	  digit1 = 0
 		digit2 = 0
 		digit3 = string.sub(SQUAWK, 1, 1)
 		digit4 = string.sub(SQUAWK, 2, 2)
-  elseif(sq_len == 3)then
+  elseif sq_len == 3 then
   	digit1 = 0
 		digit2 = string.sub(SQUAWK, 1, 1)
 		digit3 = string.sub(SQUAWK, 2, 2)
 		digit4 = string.sub(SQUAWK, 3, 3)
-  elseif(sq_len == 4)then
+  elseif sq_len == 4 then
   	digit1 = string.sub(SQUAWK, 1, 1)
 		digit2 = string.sub(SQUAWK, 2, 2)
 		digit3 = string.sub(SQUAWK, 3, 3)
@@ -287,9 +287,9 @@ function transponder_mouse_click_events()
 	end
 	
 	if MOUSE_X > SCREEN_WIDTH - 100 and MOUSE_Y < 50 then
-		if(TRANSPONDER_MODE == 0) then
+		if TRANSPONDER_MODE == 0 then
 			TRANSPONDER_MODE = 1
-		elseif(TRANSPONDER_MODE == 1) then
+		elseif TRANSPONDER_MODE == 1 then
 			TRANSPONDER_MODE = 2
 		else
 			TRANSPONDER_MODE = 0
