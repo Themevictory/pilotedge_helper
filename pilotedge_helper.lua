@@ -41,7 +41,7 @@ contact_atc_joystick_button = 321
 
 if disable_data_display==0 then
 
-	require "radio"
+  require "radio"
 
 	if show_fps==1 then
 		do_every_frame("FPS_count()")
