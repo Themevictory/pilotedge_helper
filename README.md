@@ -27,3 +27,7 @@ The **modes can be cycled** by left-clicking anywhere within the main transponde
 The upper part of the gauge represents the **IDENT button**: clicking anywhere in that upper area will send the ident signal and this is what you press when a controller asks you to ident. While identing, the upper area will blink very fast in green color, to give you a visual cue that you're identing.
 
 ![SQ IDENT](http://i.imgur.com/RZ1Lc8x.jpg)
+
+Moving your mouse outside of the gauge are hides the gauge, so you can enjoy an uncluttered screen without breaking your immersion.
+
+*NOTE: The gauge is fully compatible with plane models that already have built-in transponders: in these cases it can be treated just as an alternate method of manipulating the transponder values, or can be completely ignored (or disabled: see below)*
