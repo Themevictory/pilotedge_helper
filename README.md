@@ -56,3 +56,9 @@ So it's very handy to be able to *determine at a glance* which COM radio is sele
 ![COM TRANSMIT](http://i.imgur.com/zuRuYsT.jpg)
 
 Apart from being an indicator, this area is also an actuator, i.e. it not only shows you the information, but allows you to **change it (COM1 <-> COM2)**: clicking anywhere on the COM area will toggle the transmitting radio from COM1 to COM2 or vice versa. You can use that if your plane/hardware does not have a convenient way of switching between the radios.
+
+### Transponder mode indicator
+
+The last indicator displays the current transponder mode, which is also handy to have at a glance at all times: you ought to have your transponder on when airborne at sometimes also on the ground when the airport uses Ground Surveilance Radar. The indicator is *color coded* and displays a red [-] symbol when transponder is off, yellow [S] when transponder is on standby and green [C] when transponder is on (mode C):
+
+![SQ MODE](http://i.imgur.com/b6POU0U.jpg)
