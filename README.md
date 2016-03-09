@@ -11,7 +11,7 @@ The gauge is hidden by default and activated by moving your mouse to the **botto
 
 ![Gauge](http://i.imgur.com/vK4mN2R.jpg)
 
-The colored vertical bar on the right represents the **mode of the transponder**:
+The colored vertical bar on the left represents the **mode of the transponder**:
 
 * red = transponder off
 * yellow = transponder standby
