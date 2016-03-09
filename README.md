@@ -28,7 +28,7 @@ The upper part of the gauge represents the **IDENT button**: clicking anywhere i
 
 ![SQ IDENT](http://i.imgur.com/RZ1Lc8x.jpg)
 
-Moving your mouse outside of the gauge are hides the gauge, so you can enjoy an uncluttered screen without breaking your immersion.
+Moving your mouse outside of the gauge area hides the gauge, so you can enjoy an uncluttered screen without breaking your immersion.
 
 *NOTE: The gauge is fully compatible with plane models that already have built-in transponders: in these cases it can be treated just as an alternate method of manipulating the transponder values, or can be completely ignored (or disabled: see below)*
 
