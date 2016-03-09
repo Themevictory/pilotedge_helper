@@ -55,4 +55,4 @@ So it's very handy to be able to *determine at a glance* which COM radio is sele
 ![COM2](http://i.imgur.com/P6kgzyN.jpg)
 ![COM TRANSMIT](http://i.imgur.com/zuRuYsT.jpg)
 
-Apart from being an indicator, this area is also an actuator, i.e. it not only shows you the information, but allows you to **change it (COM1 <-> COM2)**: clicking anywhere on the COM area will toggle the transmitting radio from COM1 to COM2 or vice versa.
+Apart from being an indicator, this area is also an actuator, i.e. it not only shows you the information, but allows you to **change it (COM1 <-> COM2)**: clicking anywhere on the COM area will toggle the transmitting radio from COM1 to COM2 or vice versa. You can use that if your plane/hardware does not have a convenient way of switching between the radios.
