@@ -2,6 +2,7 @@
 -- Simple monitor and transponder to enhance online flying
 -- (c) Svilen Vassilev
 -- build 2016-03-08
+-- Documentation (manual) and latest version at: https://github.com/tarakanbg/pilotedge_helper
 
 --| ----------------------------------|
 --|  Customize your preferences here  |
