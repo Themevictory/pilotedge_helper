@@ -25,10 +25,6 @@ show_squawk_mode = 1
 -- Toggle transponder mini gauge. 1 = Enabled / 0 = Disabled
 enable_transponder_minigauge = 1
 
--- The number of the joystick button assigned for the "Contact ATC"
--- function in X-Plane. Get it from the "Settings > Joystick & Equipment" menu
-contact_atc_joystick_button = 321
-
 --_________________  End of preferences  _________________________--
 
 --________________________________________________________--
@@ -129,10 +125,11 @@ function determine_radio()
     radio_color = "red"
   end
 
-  contact_atc_joystick_corrected = contact_atc_joystick_button - 1
-
-  if button(contact_atc_joystick_corrected) then
-    radio_color = "red"
+  if XPLMFindDataRef("pilotedge/radio/tx_status") ~= nil then
+    dataref("tx_on", "pilotedge/radio/tx_status")
+    if tx_on == 1 then
+      radio_color = "red"
+    end
   end
 end
 
