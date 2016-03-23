@@ -55,6 +55,8 @@ So it's very handy to be able to *determine at a glance* which COM radio is sele
 ![COM2](http://i.imgur.com/P6kgzyN.jpg)
 ![COM TRANSMIT](http://i.imgur.com/zuRuYsT.jpg)
 
+Incoming transmissions are also monitored and represented visually: while a transmission is being received, the radio text will be wrapped in ">...<" symbols.
+
 Apart from being an indicator, this area is also an actuator, i.e. it not only shows you the information, but allows you to **change it (COM1 <-> COM2)**: clicking anywhere on the COM area will toggle the transmitting radio from COM1 to COM2 or vice versa. You can use that if your plane/hardware does not have a convenient way of switching between the radios.
 
 ### Transponder mode indicator
@@ -62,6 +64,16 @@ Apart from being an indicator, this area is also an actuator, i.e. it not only s
 The last indicator displays the current transponder mode, which is also handy to have at a glance at all times: you ought to have your transponder on when airborne at sometimes also on the ground when the airport uses Ground Surveilance Radar. The indicator is **color coded** and displays a red [-] symbol when transponder is off, yellow [S] when transponder is on standby and green [C] when transponder is on (mode C):
 
 ![SQ MODE](http://i.imgur.com/b6POU0U.jpg)
+
+### Electrical system fixes for various aircraft addons
+
+The script includes dynamic fixes to the electrical systems of some addons, in order to correct unrealistic values, dummy switches or other deficiencies and to avoid loss of comms due to unwarranted battery discharge.
+
+The following addons are supported:
+
+#### SMS DHC-2 Beaver
+
+* Coupled the dummy/custom alternator switch with X-Plane's generator dataref to avoid gradual battery discharge and comms loss during longer flights. Engaging or disengaging the plane's alternator will now correctly pass the event to X-Plane's built-in systems.
 
 ## Installation
 
@@ -79,6 +91,6 @@ You can optionally edit the first few lines of the script in your preferred text
 
 ![Customize](http://i.imgur.com/4yqNHR8.png)
 
-The preferences are described in the file and should be self-explanatory: you write `1` or `0` to enable/disable individual components depending on your needs. The joystick button number is needed if you want your COM indicator to turn red while transmitting: unfortunately X-Plane does not provide a dataref for the "Contact ATC" event that could be monitored, hence this workaround with monitoring the button press itself.
+The preferences are described in the file and should be self-explanatory: you write `1` or `0` to enable/disable individual components depending on your needs.
 
 Enjoy!
