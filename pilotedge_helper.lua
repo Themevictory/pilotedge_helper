@@ -1,7 +1,7 @@
 -- PILOTEDGE helper
 -- Simple monitor and transponder to enhance online flying
 -- (c) Svilen Vassilev
--- build 2016-03-09
+-- build 2016-03-23
 -- Documentation (manual) and latest version at: https://github.com/tarakanbg/pilotedge_helper
 
 --| ----------------------------------|
@@ -25,6 +25,16 @@ show_squawk_mode = 1
 -- Toggle transponder mini gauge. 1 = Enabled / 0 = Disabled
 enable_transponder_minigauge = 1
 
+-- Toggle electrical system fixes for various aircraft models:
+
+-- When set to 1 completely disables all electrical fixes for all aircraft (default 0)
+disable_electrical_fixes = 0
+
+-- Enables the coupling of the SMS DHC-2 Beaver alternator switch with
+-- X-plane's generator dataref to avoid gradual battery discharge with
+-- alternator "on"
+enable_sms_dhc2_alternator_fix = 1
+
 --_________________  End of preferences  _________________________--
 
 --________________________________________________________--
@@ -34,6 +44,22 @@ enable_transponder_minigauge = 1
 --| ----------------------------------|
 
 --________________________________________________________--
+
+if disable_electrical_fixes== 0 then
+
+  -- function used for testing
+  -- do_every_draw("show_ICAO()")
+  -- function show_ICAO()
+  --   draw_string(10, 500, AIRCRAFT_FILENAME)
+  -- end
+
+  if enable_sms_dhc2_alternator_fix==1 then
+    if AIRCRAFT_FILENAME == "SMS_Beaver_Regular.acf" or AIRCRAFT_FILENAME == "SMS_Beaver_Floats.acf" or AIRCRAFT_FILENAME == "SMS_Beaver_Amphib.acf" then
+      do_often("determine_dhc2_alternator()")
+    end
+  end
+
+end
 
 if disable_data_display==0 then
 
@@ -114,23 +140,35 @@ function determine_radio()
 
   dataref("selected_radio", "sim/cockpit2/radios/actuators/audio_com_selection")
 
-  if selected_radio==6 then
-    radio_string = "COM1: "..com1_humanized
-    radio_color = "white"
-  elseif selected_radio==7 then
-    radio_string = "COM2: "..com2_humanized
-    radio_color = "yellow"
-  else
-    radio_string = "NO RADIO"
-    radio_color = "red"
-  end
-
   if XPLMFindDataRef("pilotedge/radio/tx_status") ~= nil then
     dataref("tx_on", "pilotedge/radio/tx_status")
     if tx_on == 1 then
       radio_color = "red"
     end
   end
+  if XPLMFindDataRef("pilotedge/radio/rx_status") ~= nil then
+    dataref("rx_on", "pilotedge/radio/rx_status")
+  end
+
+  if selected_radio==6 then
+    if rx_on == 1 then
+      radio_string = "> COM1: "..com1_humanized.." <"
+    else
+      radio_string = "COM1: "..com1_humanized
+    end
+    radio_color = "white"
+  elseif selected_radio==7 then
+    if rx_on == 1 then
+      radio_string = "> COM2: "..com2_humanized.." <"
+    else
+      radio_string = "COM2: "..com2_humanized
+    end
+    radio_color = "yellow"
+  else
+    radio_string = "NO RADIO"
+    radio_color = "red"
+  end
+
 end
 
 function Radio_draw()
@@ -175,7 +213,12 @@ function determine_transponder()
 end
 
 function sq_draw()
-  draw_string(140, 5, "[ "..transponder_string.." ]", transponder_color)
+  if rx_on and rx_on ==1 then
+    pos_trans = 160
+  else
+    pos_trans = 140
+  end
+  draw_string(pos_trans, 5, "[ "..transponder_string.." ]", transponder_color)
 end
 
 --________________________________________________________--
@@ -345,4 +388,25 @@ function transponder_wheel_events()
   end
   SQUAWK = digit1..digit2..digit3..digit4
   RESUME_MOUSE_WHEEL = true
+end
+
+--________________________________________________________--
+-- Electrical system fixes --
+--________________________________________________________-
+
+-- SMS DHC-2 Beaver Alternator Fix --
+
+function determine_dhc2_alternator()
+  if AIRCRAFT_FILENAME == "SMS_Beaver_Regular.acf" or AIRCRAFT_FILENAME == "SMS_Beaver_Floats.acf" or AIRCRAFT_FILENAME == "SMS_Beaver_Amphib.acf" then
+    dataref("icao", "sim/aircraft/view/acf_ICAO")
+    if XPLMFindDataRef("sms/custom/cdrControlsAlternator") ~= nil then
+      dataref("dhc2_alternator", "sms/custom/cdrControlsAlternator")
+      dataref("xplane_generator", "sim/cockpit/electrical/generator_on", "writable")
+      if dhc2_alternator == 1 then
+        xplane_generator = 1
+      else
+        xplane_generator = 0
+      end
+    end
+  end
 end
