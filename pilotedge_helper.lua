@@ -63,7 +63,7 @@ end
 
 if disable_data_display==0 then
 
-  require "radio"
+  -- require "radio"
 
   if show_fps==1 then
     do_every_frame("FPS_count()")
@@ -129,6 +129,8 @@ end
 
 
 function determine_radio()
+  dataref("COM1", "sim/cockpit2/radios/actuators/com1_frequency_hz")
+  dataref("COM2", "sim/cockpit2/radios/actuators/com2_frequency_hz")
   com1_mhz = string.sub(COM1, 1, 3)
   com1_khz = string.sub(COM1, 4, 5)
   com1_humanized = com1_mhz.."."..com1_khz
@@ -142,9 +144,6 @@ function determine_radio()
 
   if XPLMFindDataRef("pilotedge/radio/tx_status") ~= nil then
     dataref("tx_on", "pilotedge/radio/tx_status")
-    if tx_on == 1 then
-      radio_color = "red"
-    end
   end
   if XPLMFindDataRef("pilotedge/radio/rx_status") ~= nil then
     dataref("rx_on", "pilotedge/radio/rx_status")
@@ -166,6 +165,9 @@ function determine_radio()
     radio_color = "yellow"
   else
     radio_string = "NO RADIO"
+    radio_color = "red"
+  end
+  if tx_on == 1 then
     radio_color = "red"
   end
 
@@ -197,6 +199,9 @@ end
 --________________________________________________________-
 
 function determine_transponder()
+
+  dataref("TRANSPONDER_MODE", "sim/cockpit/radios/transponder_mode", "writable")
+
   if TRANSPONDER_MODE == 0 then
     transponder_color = "red"
     transponder_on = 0
@@ -226,6 +231,10 @@ end
 --________________________________________________________-
 
 function draw_transponder_gauge()
+
+  dataref("TRANSPONDER_MODE", "sim/cockpit/radios/transponder_mode", "writable")
+  dataref("SQUAWK", "sim/cockpit/radios/transponder_code", "writable")
+
   -- does we have to draw anything?
   if MOUSE_Y > 80 or MOUSE_X < SCREEN_WIDTH - 100 then
     return
@@ -317,6 +326,9 @@ function draw_transponder_gauge()
 end
 
 function transponder_mouse_click_events()
+
+  dataref("TRANSPONDER_MODE", "sim/cockpit/radios/transponder_mode", "writable")
+
   -- we will only react once
   if MOUSE_STATUS ~= "down" then
     return
@@ -339,6 +351,8 @@ function transponder_mouse_click_events()
 end
 
 function transponder_wheel_events()
+  dataref("SQUAWK", "sim/cockpit/radios/transponder_code", "writable")
+
   if MOUSE_Y > 50 or MOUSE_X < SCREEN_WIDTH - 100 then
     return
   end
