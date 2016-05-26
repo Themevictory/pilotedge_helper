@@ -1,3 +1,9 @@
+26 May 2016
+-----------
+* Fixed a bug with COM khz freq being unwritable when using the tuning knobs of the GNS.
+* Fixed a bug with the color of the TX indicator
+
+
 23 March 2016
 --------------
 * added monitoring and depiction of Pilotedge RX dataref for identifying transmissions being received on the active radio
